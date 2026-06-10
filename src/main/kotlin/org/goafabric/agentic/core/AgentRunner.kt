@@ -1,12 +1,11 @@
-package org.goafabric.agents.tools
+package org.goafabric.agentic.core
 
 import io.quarkus.runtime.StartupEvent
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.event.Observes
-import org.goafabric.agents.agentic.agents.CalleeAgent
-import org.goafabric.agents.agentic.agents.CreativeWriterAgent
-import org.goafabric.agents.agentic.agents.Orchestrator
-import org.goafabric.agents.agentic.agents.PersonAgent
+import org.goafabric.agentic.agents.CalleeAgent
+import org.goafabric.agentic.agents.CreativeWriterAgent
+import org.goafabric.agentic.agents.PersonAgent
 import java.util.Scanner
 
 @ApplicationScoped

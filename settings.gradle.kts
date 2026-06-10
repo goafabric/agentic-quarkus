@@ -4,4 +4,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = "agents-quarkus"
+rootProject.name = "agentic-quarkus"

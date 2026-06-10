@@ -1,4 +1,4 @@
-package org.goafabric.agents.agentic.agents
+package org.goafabric.agentic.agents
 
 import dev.langchain4j.agentic.AgenticServices
 import dev.langchain4j.model.chat.ChatModel

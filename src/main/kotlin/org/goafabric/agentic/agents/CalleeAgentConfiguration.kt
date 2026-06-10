@@ -1,4 +1,4 @@
-package org.goafabric.agents.agentic.agents
+package org.goafabric.agentic.agents
 
 import dev.langchain4j.agentic.AgenticServices
 import dev.langchain4j.mcp.McpToolProvider
@@ -9,12 +9,12 @@ import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
 
 @ApplicationScoped
-class PersonAgentConfiguration {
+class CalleeAgentConfiguration {
     @Produces
-    fun personAgent(model: ChatModel, @McpClientName("person") person: McpClient): PersonAgent {
-        val toolProvider = McpToolProvider.builder().mcpClients(person).build()
+    fun calleeAgent(model: ChatModel, @McpClientName("callee") callee: McpClient): CalleeAgent {
+        val toolProvider = McpToolProvider.builder().mcpClients(callee).build()
         return AgenticServices
-            .agentBuilder(PersonAgent::class.java)
+            .agentBuilder(CalleeAgent::class.java)
             .chatModel(model)
             .toolProvider(toolProvider)
             .build()
