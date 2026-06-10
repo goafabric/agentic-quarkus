@@ -44,7 +44,7 @@ dependencies {
 
 	//mcp https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-anthropic:1.9.1")
-	//implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-openai:1.9.1")
+	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-openai:1.9.1")
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-mcp:1.9.1")
 	
 	//test
