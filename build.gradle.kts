@@ -46,7 +46,8 @@ dependencies {
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-anthropic:1.9.1")
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-openai:1.9.1")
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-mcp:1.9.1")
-	
+	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-agentic:1.9.1")
+
 	//test
 	testImplementation("io.quarkus:quarkus-junit5")
 	testImplementation("io.rest-assured:rest-assured")
