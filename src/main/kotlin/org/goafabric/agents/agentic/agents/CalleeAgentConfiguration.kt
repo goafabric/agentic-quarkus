@@ -1,24 +1,18 @@
-package org.goafabric.agents.agentic
+package org.goafabric.agents.agentic.agents
 
+import dev.langchain4j.agentic.Agent
 import dev.langchain4j.agentic.AgenticServices
 import dev.langchain4j.mcp.McpToolProvider
 import dev.langchain4j.mcp.client.McpClient
 import dev.langchain4j.model.chat.ChatModel
+import dev.langchain4j.service.UserMessage
+import dev.langchain4j.service.V
 import io.quarkiverse.langchain4j.mcp.runtime.McpClientName
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
 
-
 @ApplicationScoped
-class AgentConfiguration {
-    @Produces
-    fun creativeWriterAgent(model: ChatModel): CreativeWriterAgent {
-        return AgenticServices
-            .agentBuilder(CreativeWriterAgent::class.java)
-            .chatModel(model)
-            .build()
-    }
-
+class CalleeAgentConfiguration {
     @Produces
     fun calleeAgent(model: ChatModel, @McpClientName("callee") callee: McpClient): CalleeAgent {
         val toolProvider = McpToolProvider.builder().mcpClients(callee).build()
@@ -28,5 +22,4 @@ class AgentConfiguration {
             .toolProvider(toolProvider)
             .build()
     }
-
 }
