@@ -9,6 +9,7 @@ import jakarta.enterprise.inject.Produces
 import java.time.Duration
 
 //https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html#_declarative_tool_provider_generation
+//https://docs.langchain4j.dev/tutorials/agents/#mcp-based-tool-agents
 @ApplicationScoped
 class McpHttpConfiguration {
     @Produces
