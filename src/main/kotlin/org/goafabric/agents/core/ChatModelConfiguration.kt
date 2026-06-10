@@ -1,9 +1,12 @@
 package org.goafabric.agents.core
 
+import dev.langchain4j.mcp.client.DefaultMcpClient
+import dev.langchain4j.mcp.client.transport.http.StreamableHttpMcpTransport
 import dev.langchain4j.model.anthropic.AnthropicChatModel
 import dev.langchain4j.model.chat.ChatModel
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
+import org.eclipse.microprofile.config.inject.ConfigProperty
 import java.time.Duration
 
 @ApplicationScoped
@@ -29,4 +32,15 @@ class ChatModelConfiguration {
             .timeout(Duration.ofSeconds(60)).temperature(0.0)
             .build()
     }
+
+    /*
+    @Produces
+    fun calleeMcp(@ConfigProperty(name = "quarkus.langchain4j.mcp.callee.url") url: String): DefaultMcpClient? {
+        return DefaultMcpClient.Builder().transport(StreamableHttpMcpTransport.Builder().url(url).build()).build()
+    }
+
+     */
+
+
+
 }

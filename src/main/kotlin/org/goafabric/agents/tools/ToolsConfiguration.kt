@@ -1,8 +1,11 @@
 package org.goafabric.agents.tools
 
+import dev.langchain4j.mcp.McpToolProvider
+import dev.langchain4j.mcp.client.McpClient
 import dev.langchain4j.model.chat.ChatModel
 import dev.langchain4j.service.AiServices
 import dev.langchain4j.service.tool.ToolProvider
+import io.quarkiverse.langchain4j.mcp.runtime.McpClientName
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
 
@@ -18,19 +21,9 @@ class ToolsConfiguration {
             .build()
     }
 
-    /*
     @Produces
-    fun calleeMcp(@ConfigProperty(name = "quarkus.langchain4j.mcp.callee.url") url: String) =
-        DefaultMcpClient.Builder().transport(StreamableHttpMcpTransport.Builder().url(url).build()).build()
-
-
-     */
-    /*
-    @Produces
-    fun mcpToolProvider(@McpClientName("callee") callee: McpClient) : ToolProvider {
-        return McpToolProvider.builder().mcpClients(callee).build()
+    fun toolProvider(@McpClientName("callee") calleeMcp: McpClient) : ToolProvider {
+        return McpToolProvider.builder().mcpClients(calleeMcp).build()
     }
-
-     */
 
 }

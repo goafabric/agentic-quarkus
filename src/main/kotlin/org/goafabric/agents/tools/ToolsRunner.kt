@@ -15,7 +15,6 @@ class ToolsRunner(
 
     fun onStart(@Observes ev: StartupEvent) {
         try {
-            //println("[Agent]: " + mcpAssistant.chat("please greet me"));
             val scanner = Scanner(System.`in`)
             while (true) {
                 println("[User]: ")
