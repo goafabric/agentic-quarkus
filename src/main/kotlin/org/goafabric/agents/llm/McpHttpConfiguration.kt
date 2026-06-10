@@ -1,44 +1,31 @@
 package org.goafabric.agents.llm
 
-import dev.langchain4j.mcp.McpToolProvider
-import dev.langchain4j.mcp.client.DefaultMcpClient
-import dev.langchain4j.mcp.client.McpClient
-import dev.langchain4j.mcp.client.transport.http.StreamableHttpMcpTransport
 import dev.langchain4j.model.anthropic.AnthropicChatModel
 import dev.langchain4j.model.chat.ChatModel
 import dev.langchain4j.service.AiServices
 import dev.langchain4j.service.tool.ToolProvider
-import io.quarkiverse.langchain4j.mcp.runtime.McpClientName
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
-import jakarta.inject.Inject
 import java.time.Duration
 
 //https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html#_declarative_tool_provider_generation
 @ApplicationScoped
 class McpHttpConfiguration {
-    @Inject
-    @McpClientName("callee2")
-    var githubClient: McpClient? = null
-
     @Produces
-    fun mcpBot(model: ChatModel): Assistant {
-        val toolProvider: ToolProvider = McpToolProvider.builder()
-            .mcpClients(listOf(calleeMcp()))
-            .build()
-
+    fun mcpBot(model: ChatModel, toolProvider: ToolProvider): Assistant {
         return AiServices.builder(Assistant::class.java)
             .chatModel(model)
             .toolProvider(toolProvider)
             .build()
     }
 
+    /*
     @Produces
-    fun calleeMcp() : McpClient {
-        return DefaultMcpClient.Builder()
-            .transport(StreamableHttpMcpTransport.Builder().url("http://localhost:50900/mcp").build())
-            .build()
+    fun mcpToolProvider(@McpClientName("callee") callee: McpClient) : ToolProvider {
+        return McpToolProvider.builder().mcpClients(callee).build()
     }
+
+     */
 
     /*
     @Produces
