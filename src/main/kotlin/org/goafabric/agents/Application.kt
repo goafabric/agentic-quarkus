@@ -1,22 +1,10 @@
 package org.goafabric.agents
 
 import io.quarkus.runtime.Quarkus
-import io.quarkus.runtime.QuarkusApplication
 import io.quarkus.runtime.annotations.QuarkusMain
-import jakarta.inject.Inject
-import org.goafabric.agents.llm.ObservationAgentRunner
 
 @QuarkusMain
-class Application : QuarkusApplication {
-    @Inject
-    lateinit var runner: ObservationAgentRunner
-
-    override fun run(vararg args: String?): Int {
-        runner.run()
-        return 0
-    }
-
-}
+class Application
 
 fun main(args: Array<String>) {
     Quarkus.run(*args)

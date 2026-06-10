@@ -17,7 +17,7 @@ class McpHttpConfiguration {
     @Produces
     fun mcpBot(model: ChatModel): Assistant {
         val transport = StreamableHttpMcpTransport.Builder()
-            .url("http://localhost:50800/mcp")
+            .url("http://localhost:50900/mcp")
             .build()
 
         val mcpClient: McpClient = DefaultMcpClient.Builder()
