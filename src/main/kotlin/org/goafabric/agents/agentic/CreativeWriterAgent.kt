@@ -6,7 +6,7 @@ import dev.langchain4j.service.V
 
 
 
-interface CreativeWriter {
+interface CreativeWriterAgent {
     @UserMessage(
         """
             You are a creative writer.

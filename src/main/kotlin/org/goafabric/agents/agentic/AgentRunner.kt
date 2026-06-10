@@ -1,0 +1,16 @@
+package org.goafabric.agents.tools
+
+import io.quarkus.runtime.StartupEvent
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.enterprise.event.Observes
+import org.goafabric.agents.agentic.CreativeWriterAgent
+
+@ApplicationScoped
+class AgentRunner(private val creativeWriterAgent: CreativeWriterAgent) {
+
+    fun onStart(@Observes ev: StartupEvent) {
+        val story = creativeWriterAgent.generateStory("fairy")
+        print("### story ####\r\n")
+        println(story)
+    }
+}
