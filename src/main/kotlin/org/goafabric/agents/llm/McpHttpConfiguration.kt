@@ -12,7 +12,6 @@ import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
 import java.time.Duration
 
-//https://github.com/modelcontextprotocol/servers/tree/main/src
 @ApplicationScoped
 class McpHttpConfiguration {
     @Produces
