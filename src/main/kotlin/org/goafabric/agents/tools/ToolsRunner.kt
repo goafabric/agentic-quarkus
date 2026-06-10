@@ -8,21 +8,12 @@ import org.slf4j.LoggerFactory
 import java.util.*
 
 @ApplicationScoped
-class ToolsRunner(
-    val assistant: ToolsConfiguration.Assistant
-) {
-    private val log: Logger = LoggerFactory.getLogger(this.javaClass.name)
-
+class ToolsRunner(val assistant: ToolsConfiguration.Assistant) {
     fun onStart(@Observes ev: StartupEvent) {
-        try {
-            val scanner = Scanner(System.`in`)
-            while (true) {
-                println("[User]: ")
-                println("[Agent]: " + assistant.chat(scanner.nextLine()));
-            }
-        } catch (e: Exception) {
-            log.error("error", e)
+        val scanner = Scanner(System.`in`)
+        while (true) {
+            println("[User]: ")
+            println("[Agent]: " + assistant.chat(scanner.nextLine()));
         }
     }
-
 }
