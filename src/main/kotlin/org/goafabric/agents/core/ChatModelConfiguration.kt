@@ -33,14 +33,9 @@ class ChatModelConfiguration {
             .build()
     }
 
-    /*
     @Produces
-    fun calleeMcp(@ConfigProperty(name = "quarkus.langchain4j.mcp.callee.url") url: String): DefaultMcpClient? {
+    fun calleeMcp(@ConfigProperty(name = "callee.url") url: String): DefaultMcpClient? {
         return DefaultMcpClient.Builder().transport(StreamableHttpMcpTransport.Builder().url(url).build()).build()
     }
-
-     */
-
-
 
 }
