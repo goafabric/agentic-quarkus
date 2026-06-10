@@ -12,25 +12,25 @@ import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
 import java.time.Duration
 
+//https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html#_declarative_tool_provider_generation
 @ApplicationScoped
 class McpHttpConfiguration {
     @Produces
     fun mcpBot(model: ChatModel): Assistant {
-        val transport = StreamableHttpMcpTransport.Builder()
-            .url("http://localhost:50900/mcp")
-            .build()
-
-        val mcpClient: McpClient = DefaultMcpClient.Builder()
-            .transport(transport)
-            .build()
-
         val toolProvider: ToolProvider = McpToolProvider.builder()
-            .mcpClients(listOf(mcpClient))
+            .mcpClients(listOf(calleeMcp()))
             .build()
 
         return AiServices.builder(Assistant::class.java)
             .chatModel(model)
             .toolProvider(toolProvider)
+            .build()
+    }
+
+    @Produces
+    fun calleeMcp() : McpClient {
+        return DefaultMcpClient.Builder()
+            .transport(StreamableHttpMcpTransport.Builder().url("http://localhost:50900/mcp").build())
             .build()
     }
 

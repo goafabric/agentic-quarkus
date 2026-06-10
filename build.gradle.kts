@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -9,10 +8,10 @@ tasks.withType<KotlinCompile>().all { compilerOptions { jvmTarget.set(JvmTarget.
 val dockerRegistry = "goafabric"
 plugins {
 	jacoco
-	id("io.quarkus") version "3.34.5"
+	id("io.quarkus") version "3.36.1"
 	id("net.researchgate.release") version "3.1.0"
 
-	kotlin("jvm") version "2.3.20"
+	kotlin("jvm") version "2.4.0"
 }
 
 repositories {
