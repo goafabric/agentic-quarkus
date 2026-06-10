@@ -14,20 +14,12 @@ import jakarta.enterprise.inject.Produces
 @ApplicationScoped
 class ToolsConfiguration {
     @Produces
-    fun mcpBot(model: ChatModel, @McpClientName("callee") calleeMcp: McpClient): Assistant {
-        val toolProvider = McpToolProvider.builder().mcpClients(calleeMcp).build()
+    fun mcpBot(model: ChatModel, @McpClientName("callee") callee: McpClient): Assistant {
         return AiServices.builder(Assistant::class.java)
             .chatModel(model)
-            .toolProvider(toolProvider)
+            .toolProvider(McpToolProvider.builder()
+                .mcpClients(callee).build())
             .build()
     }
-
-    /*
-    @Produces
-    fun toolProvider(@McpClientName("callee") calleeMcp: McpClient) : ToolProvider {
-        return McpToolProvider.builder().mcpClients(calleeMcp).build()
-    }
-
-     */
 
 }
