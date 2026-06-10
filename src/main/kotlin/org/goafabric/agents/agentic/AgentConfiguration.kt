@@ -6,7 +6,7 @@ import dev.langchain4j.mcp.client.McpClient
 import dev.langchain4j.model.chat.ChatModel
 import io.quarkiverse.langchain4j.mcp.runtime.McpClientName
 import jakarta.enterprise.context.ApplicationScoped
-import jakarta.ws.rs.Produces
+import jakarta.enterprise.inject.Produces
 
 
 @ApplicationScoped
