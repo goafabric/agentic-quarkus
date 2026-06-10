@@ -47,7 +47,7 @@ dependencies {
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-openai:1.9.1")
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-mcp:1.9.1")
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-agentic:1.9.1")
-	//implementation("dev.langchain4j:langchain4j-agentic:1.13.0-beta23")
+	implementation("dev.langchain4j:langchain4j-agentic-mcp:1.13.0-beta23")
 
 	//test
 	testImplementation("io.quarkus:quarkus-junit5")
