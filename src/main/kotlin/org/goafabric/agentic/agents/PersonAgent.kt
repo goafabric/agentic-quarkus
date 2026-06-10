@@ -3,6 +3,7 @@ package org.goafabric.agentic.agents
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
+import io.quarkiverse.langchain4j.mcp.runtime.McpToolBox
 
 interface PersonAgent {
     @UserMessage("""
@@ -12,5 +13,6 @@ interface PersonAgent {
         Return the results as a readable list.
     """)
     @Agent(outputKey = "persons", description = "Finds persons by name via MCP tool")
+    @McpToolBox("person")
     fun findPerson(@V("firstName") firstName: String, @V("lastName") lastName: String?): String
 }
