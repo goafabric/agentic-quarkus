@@ -1,7 +1,7 @@
 package org.goafabric.agents.agentic
 
 import dev.langchain4j.agentic.AgenticServices
-import dev.langchain4j.agentic.mcp.McpAgent
+import dev.langchain4j.mcp.McpToolProvider
 import dev.langchain4j.mcp.client.McpClient
 import dev.langchain4j.model.chat.ChatModel
 import io.quarkiverse.langchain4j.mcp.runtime.McpClientName
@@ -21,8 +21,11 @@ class AgentConfiguration {
 
     @Produces
     fun calleeAgent(model: ChatModel, @McpClientName("callee") callee: McpClient): CalleeAgent {
-        return McpAgent.builder(callee, CalleeAgent::class.java)
-            .toolName("sayMyName")
+        val toolProvider = McpToolProvider.builder().mcpClients(callee).build()
+        return AgenticServices
+            .agentBuilder(CalleeAgent::class.java)
+            .chatModel(model)
+            .toolProvider(toolProvider)
             .build()
     }
 

@@ -4,19 +4,9 @@ import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
 
-
-
 interface CalleeAgent {
-    /*
-    @UserMessage(
-        """
-            You are a callee agent.
-            That can say names
-            """
-    )
 
-     */
-
-    @Agent(outputKey = "message", description = "Say name")
+    @UserMessage("Use the sayMyName tool to say the following name: {{name}}")
+    @Agent(outputKey = "message", description = "Says a name via MCP tool")
     fun sayMyName(@V("name") name: String): String
 }
