@@ -8,13 +8,19 @@ import dev.langchain4j.model.anthropic.AnthropicChatModel
 import dev.langchain4j.model.chat.ChatModel
 import dev.langchain4j.service.AiServices
 import dev.langchain4j.service.tool.ToolProvider
+import io.quarkiverse.langchain4j.mcp.runtime.McpClientName
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
+import jakarta.inject.Inject
 import java.time.Duration
 
 //https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html#_declarative_tool_provider_generation
 @ApplicationScoped
 class McpHttpConfiguration {
+    @Inject
+    @McpClientName("callee2")
+    var githubClient: McpClient? = null
+
     @Produces
     fun mcpBot(model: ChatModel): Assistant {
         val toolProvider: ToolProvider = McpToolProvider.builder()
