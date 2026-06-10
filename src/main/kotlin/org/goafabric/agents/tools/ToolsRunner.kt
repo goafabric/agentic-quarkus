@@ -9,7 +9,7 @@ import java.util.*
 
 @ApplicationScoped
 class ToolsRunner(
-    val mcpAssistant: Assistant
+    val assistant: ToolsConfiguration.Assistant
 ) {
     private val log: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
@@ -18,7 +18,7 @@ class ToolsRunner(
             val scanner = Scanner(System.`in`)
             while (true) {
                 println("[User]: ")
-                println("[Agent]: " + mcpAssistant.chat(scanner.nextLine()));
+                println("[Agent]: " + assistant.chat(scanner.nextLine()));
             }
         } catch (e: Exception) {
             log.error("error", e)
