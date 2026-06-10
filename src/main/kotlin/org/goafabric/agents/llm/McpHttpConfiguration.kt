@@ -22,6 +22,13 @@ class McpHttpConfiguration {
 
     /*
     @Produces
+    fun calleeMcp(@ConfigProperty(name = "quarkus.langchain4j.mcp.callee.url") url: String) =
+        DefaultMcpClient.Builder().transport(StreamableHttpMcpTransport.Builder().url(url).build()).build()
+
+
+     */
+    /*
+    @Produces
     fun mcpToolProvider(@McpClientName("callee") callee: McpClient) : ToolProvider {
         return McpToolProvider.builder().mcpClients(callee).build()
     }
