@@ -23,10 +23,14 @@ class AgentRunner(private val creativeWriterAgent: CreativeWriterAgent,
     }
 
     fun orchestrate() {
-        val scanner = Scanner(System.`in`)
-        while (true) {
-            println("[User]: ")
-            println("[Agent]: " + orchestrator.play(scanner.nextLine()));
+        try {
+            val scanner = Scanner(System.`in`)
+            while (true) {
+                println("[User]: ")
+                println("[Agent]: " + orchestrator.play(scanner.nextLine()));
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }
