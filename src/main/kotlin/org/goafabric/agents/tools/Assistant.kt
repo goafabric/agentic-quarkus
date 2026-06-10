@@ -1,4 +1,4 @@
-package org.goafabric.agents.llm
+package org.goafabric.agents.tools
 
 import dev.langchain4j.service.SystemMessage
 import dev.langchain4j.service.UserMessage

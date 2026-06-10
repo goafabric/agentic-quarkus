@@ -1,8 +1,9 @@
-package org.goafabric.agents.llm
+package org.goafabric.agents.core
 
 import io.quarkus.runtime.StartupEvent
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.event.Observes
+import org.goafabric.agents.tools.Assistant
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.util.*
