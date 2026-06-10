@@ -9,7 +9,7 @@ import jakarta.enterprise.inject.Produces
 //https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html#_declarative_tool_provider_generation
 //https://docs.langchain4j.dev/tutorials/agents/#mcp-based-tool-agents
 @ApplicationScoped
-class McpHttpConfiguration {
+class ToolsConfiguration {
     @Produces
     fun mcpBot(model: ChatModel, toolProvider: ToolProvider): Assistant {
         return AiServices.builder(Assistant::class.java)
