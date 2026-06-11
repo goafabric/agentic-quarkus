@@ -11,5 +11,10 @@ container stop calle-service-quarkus ; container run --name calle-service-quarku
 - model and mcp client configuration is entirely inside application.properties, leveraging quarkus autoconfig for langchain4j
 - agents and assistant also follow a declarative approach, by ditching manual builder code with annotations, examples can be find in doc foler
 
+# links
 
+https://github.com/goafabric/agentic-quarkus/blob/main/src/main/kotlin/org/goafabric/agentic/assistant/Assistant.kt
 
+https://github.com/goafabric/agentic-quarkus/tree/main/src/main/kotlin/org/goafabric/agentic/agents
+
+https://github.com/goafabric/agentic-quarkus/blob/main/src/main/resources/application.properties
