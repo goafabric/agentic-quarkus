@@ -6,13 +6,14 @@ import dev.langchain4j.service.V
 import io.quarkiverse.langchain4j.mcp.runtime.McpToolBox
 
 interface PersonAgent {
+    @Agent(outputKey = "persons", description = "Finds persons by name via person mcp")
+
     @UserMessage("""
         Use the find tool to search for persons matching the given name.
         Use {{firstName}} for firstName and {{lastName}} for lastName
         Use page=0 and size=10 for pagination.
         Return the results as a readable list.
     """)
-    @Agent(outputKey = "persons", description = "Finds persons by name via MCP tool")
     @McpToolBox("person")
     fun findPerson(@V("firstName") firstName: String, @V("lastName") lastName: String?): String
 }

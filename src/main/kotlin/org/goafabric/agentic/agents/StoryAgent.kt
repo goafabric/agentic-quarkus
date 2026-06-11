@@ -4,9 +4,9 @@ import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
 
+interface StoryAgent {
+    @Agent(outputKey = "story", description = "Generates a story based on the given topic")
 
-
-interface CreativeWriterAgent {
     @UserMessage(
         """
             You are a creative writer.
@@ -16,7 +16,5 @@ interface CreativeWriterAgent {
             The topic is {{topic}}.            
             """
     )
-
-    @Agent(outputKey = "story", description = "Generates a story based on the given topic")
     fun generateStory(@V("topic") topic: String): String
 }
