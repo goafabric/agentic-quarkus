@@ -1,9 +1,6 @@
-package org.goafabric.agentic.core
+package org.goafabric.agentic.agents
 
 import jakarta.enterprise.context.ApplicationScoped
-import org.goafabric.agentic.agents.CalleeAgent
-import org.goafabric.agentic.agents.CreativeWriterAgent
-import org.goafabric.agentic.agents.PersonAgent
 
 @ApplicationScoped
 class Orchestrator(private val creativeWriterAgent: CreativeWriterAgent,
