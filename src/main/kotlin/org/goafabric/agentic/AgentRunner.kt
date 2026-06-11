@@ -7,13 +7,15 @@ import org.goafabric.agentic.agents.CalleeAgent
 import org.goafabric.agentic.agents.CreativeWriterAgent
 import org.goafabric.agentic.agents.Orchestrator
 import org.goafabric.agentic.agents.PersonAgent
+import org.goafabric.agentic.assistant.AssistantConfiguration
 import java.util.*
 
 @ApplicationScoped
 class AgentRunner(private val creativeWriterAgent: CreativeWriterAgent,
                   private val calleeAgent: CalleeAgent,
                   private val personAgent: PersonAgent,
-                  private val orchestrator: Orchestrator
+                  private val orchestrator: Orchestrator,
+                  private val assistant: AssistantConfiguration.Assistant
 ) {
 
     fun onStart(@Observes ev: StartupEvent) {
@@ -28,7 +30,8 @@ class AgentRunner(private val creativeWriterAgent: CreativeWriterAgent,
             val scanner = Scanner(System.`in`)
             while (true) {
                 println("[User]: ")
-                println("[Agent]: " + orchestrator.play(scanner.nextLine()));
+                //println("[Agent]: " + orchestrator.play(scanner.nextLine()));
+                println("[Agent]: " + assistant.chat(scanner.nextLine()));
             }
         } catch (e: Exception) {
             e.printStackTrace()
