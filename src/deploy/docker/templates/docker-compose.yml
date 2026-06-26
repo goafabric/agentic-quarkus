@@ -36,6 +36,8 @@ services:
       quarkus.langchain4j.mcp.callee.url: "http://${_Values_host_docker_internal}:50900/mcp"
       quarkus.langchain4j.mcp.person.url: "http://${_Values_host_docker_internal}:50800/mcp"
 
+      agentic.mode: "agentic"
+
 
       #log levels
       QUARKUS_LOG_LEVEL: "INFO"
@@ -58,7 +60,6 @@ services:
     volumes:
       - person_service_tmp:/tmp
       - person_service_applogs:/usr/share/logs
-      - ./secrets:/mnt/secrets
     networks:
       - ${_Values_root_name}-net
     environment:

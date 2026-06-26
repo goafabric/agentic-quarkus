@@ -10,12 +10,12 @@ class SuperAgent(private val storyAgent: StoryAgent,
 ) {
     fun execute(message : String): String {
         val tokens = message.split(" ")
-        if (tokens.size < 2) error("not enough info")
+        if (tokens.size < 2) return "not enough parameters (say <p>, find <p>, story <p>"
         return when (tokens[0]) {
             "say" -> calleeAgent.sayMyName(tokens[1])
             "find" -> personAgent.findPerson(tokens[1], "Simpson")
             "story" -> storyAgent.generateStory(tokens[1])
-            else -> error("unknown keyword " + tokens[0])
+            else -> "unknown keyword $tokens[0]"
         }
     }
 }
