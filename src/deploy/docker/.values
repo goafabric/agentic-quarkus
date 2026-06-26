@@ -2,7 +2,7 @@ _Values_root_name="agentic-quarkus"
 
 _Values_image_repository=goafabric/agentic-quarkus
 
-_Values_service_port=50500
+_Values_service_port=50600
 _Values_resources_requests_memory=32M
 
 _Values_host_docker_internal=host.docker.internal
