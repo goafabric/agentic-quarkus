@@ -5,7 +5,7 @@ import dev.langchain4j.service.UserMessage
 import io.quarkiverse.langchain4j.mcp.runtime.McpToolBox
 
 interface Assistant {
-    @SystemMessage(""""
+    @SystemMessage("""
         You are a helpful assistant that can interact with mcp servers
         Use the callee mcp to say names
         Use the person mcp to find and search for persons

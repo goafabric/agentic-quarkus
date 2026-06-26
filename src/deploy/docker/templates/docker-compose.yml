@@ -1,5 +1,7 @@
 services:
   application:
+    stdin_open: true
+    tty: true
     container_name: ${_Values_root_name}-application
     image:  ${_Values_image_repository}:${_Values_image_tag}
     restart: 'no'
@@ -30,7 +32,7 @@ services:
       #langchain
       ANTHROPIC_FOUNDRY_API_KEY: ${ANTHROPIC_FOUNDRY_API_KEY}
       ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
-      ANTHROPIC_DEFAULT_SONNET_MODEl: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      ANTHROPIC_DEFAULT_SONNET_MODEL: ${ANTHROPIC_DEFAULT_SONNET_MODEL}
 
       #mcp
       quarkus.langchain4j.mcp.callee.url: "http://${_Values_host_docker_internal}:50900/mcp"
