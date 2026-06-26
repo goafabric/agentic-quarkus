@@ -1,7 +1,5 @@
 services:
   application:
-    stdin_open: true
-    tty: true
     container_name: ${_Values_root_name}-application
     image:  ${_Values_image_repository}:${_Values_image_tag}
     restart: 'no'
@@ -169,5 +167,5 @@ volumes:
     pgdata_quarkus:
 
 networks:
-  person-service-net:
+  agentic-quarkus-net:
     driver: bridge
