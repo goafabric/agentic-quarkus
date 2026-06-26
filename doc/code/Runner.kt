@@ -7,7 +7,6 @@ import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.goafabric.agentic.agents.CalleeAgent
 import org.goafabric.agentic.agents.SuperAgent
 import org.goafabric.agentic.assistant.Assistant
-import java.util.*
 
 @ApplicationScoped
 class Runner(private val calleeAgent: CalleeAgent,
@@ -17,6 +16,7 @@ class Runner(private val calleeAgent: CalleeAgent,
 
     fun onStart(@Observes ev: StartupEvent) {
         //println("### " + calleeAgent.sayMyName("homer"))
+        // Console REPL loop commented out — replaced by REST endpoint /chat in ChatController
         try {
             val scanner = Scanner(System.`in`)
             while (true) {
