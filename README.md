@@ -14,7 +14,5 @@ container stop calle-service-quarkus ; container run --name calle-service-quarku
 # links
 
 https://github.com/goafabric/agentic-quarkus/blob/main/src/main/kotlin/org/goafabric/agentic/assistant/Assistant.kt
-
 https://github.com/goafabric/agentic-quarkus/tree/main/src/main/kotlin/org/goafabric/agentic/agents
-
 https://github.com/goafabric/agentic-quarkus/blob/main/src/main/resources/application.properties
