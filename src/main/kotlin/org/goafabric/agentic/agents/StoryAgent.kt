@@ -3,7 +3,9 @@ package org.goafabric.agentic.agents
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
+import io.quarkus.runtime.annotations.RegisterForProxy
 
+@RegisterForProxy
 interface StoryAgent {
     @Agent(outputKey = "story", description = "Generates a story based on the given topic")
 

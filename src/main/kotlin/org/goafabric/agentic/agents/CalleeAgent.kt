@@ -4,7 +4,9 @@ import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
 import io.quarkiverse.langchain4j.mcp.runtime.McpToolBox
+import io.quarkus.runtime.annotations.RegisterForProxy
 
+@RegisterForProxy
 interface CalleeAgent {
     @Agent(outputKey = "message", description = "Says a name via callee mcp")
 
