@@ -13,8 +13,8 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - tmp:/tmp
-      - applogs:/usr/share/logs
+      - application_tmp:/tmp
+      - application_applogs:/usr/share/logs
     networks:
       - ${_Values_root_name}-net
     environment:
@@ -56,8 +56,8 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - tmp:/tmp
-      - applogs:/usr/share/logs
+      - person_service_tmp:/tmp
+      - person_service_applogs:/usr/share/logs
       - ./secrets:/mnt/secrets
     networks:
       - ${_Values_root_name}-net
@@ -115,8 +115,8 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - tmp:/tmp
-      - applogs:/usr/share/logs
+      - callee_service_tmp:/tmp
+      - callee_service_applogs:/usr/share/logs
     networks:
       - ${_Values_root_name}-net
     environment:
@@ -162,8 +162,12 @@ services:
 
 
 volumes:
-    tmp:
-    applogs:
+    application_tmp:
+    application_applogs:
+    person_service_tmp:
+    person_service_applogs:
+    callee_service_tmp:
+    callee_service_applogs:
     pgdata_quarkus:
 
 networks:
