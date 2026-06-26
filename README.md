@@ -16,3 +16,11 @@ container stop calle-service-quarkus ; container run --name calle-service-quarku
 https://github.com/goafabric/agentic-quarkus/blob/main/src/main/kotlin/org/goafabric/agentic/assistant/Assistant.kt
 https://github.com/goafabric/agentic-quarkus/tree/main/src/main/kotlin/org/goafabric/agentic/agents
 https://github.com/goafabric/agentic-quarkus/blob/main/src/main/resources/application.properties
+       
+# container
+
+container image pull goafabric/agentic-quarkus:$(grep '^version=' gradle.properties | cut -d'=' -f2)
+"${(@z)${CRUNTIME:-docker run --pull always}}" --name agentic-quarkus --rm \
+-e ANTHROPIC_FOUNDRY_API_KEY -e ANTHROPIC_FOUNDRY_RESOURCE -e ANTHROPIC_DEFAULT_SONNET_MODEL \
+-e quarkus.langchain4j.mcp.callee.url=http://203.0.113.113:50900/mcp -e quarkus.langchain4j.mcp.person.url=http://203.0.113.113:50800/mcp \
+goafabric/agentic-quarkus:$(grep '^version=' gradle.properties | cut -d'=' -f2)
