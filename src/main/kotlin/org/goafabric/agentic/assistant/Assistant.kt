@@ -10,6 +10,6 @@ interface Assistant {
         Use the callee mcp to say names
         Use the person mcp to find and search for persons
         """)
-    @McpToolBox("callee", "person")
+    @McpToolBox("callee", "person", "observation")
     fun chat(@UserMessage message: String): String
 }
