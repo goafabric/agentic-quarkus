@@ -35,6 +35,7 @@ services:
       #mcp
       quarkus.langchain4j.mcp.callee.url: "http://${_Values_host_docker_internal}:50900/mcp"
       quarkus.langchain4j.mcp.person.url: "http://${_Values_host_docker_internal}:50800/mcp"
+      quarkus.langchain4j.mcp.observation.url: "http://${_Values_host_docker_internal}:50700/mcp"
 
       agentic.mode: "agentic"
 

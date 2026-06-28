@@ -35,6 +35,19 @@
           "dev.langchain4j.observability.api.listener.AiServiceResponseReceivedListener"
         ]
       }
+    },
+    {
+      "type": {
+        "proxy": [
+          "org.goafabric.agentic.agents.ObservationAgent",
+          "dev.langchain4j.agentic.internal.InternalAgent",
+          "dev.langchain4j.agentic.internal.AgenticScopeOwner",
+          "dev.langchain4j.service.memory.ChatMemoryAccess",
+          "dev.langchain4j.agentic.agent.ChatMessagesAccess",
+          "dev.langchain4j.observability.api.listener.AiServiceResponseReceivedListener"
+        ]
+      }
     }
+
   ]
 }
