@@ -14,6 +14,7 @@ import org.goafabric.agentic.assistant.Assistant
 @ApplicationScoped
 class ChatController(
     private val superAgent: SuperAgent,
+    //private val superAgent: SuperVisorAgentConfig.SupervisorAgent,
     private val assistant: Assistant,
     @param:ConfigProperty(name = "agentic.mode") private val mode: String
 ) {
