@@ -5,7 +5,7 @@ import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
 import io.quarkus.runtime.annotations.RegisterForProxy
 
-@RegisterForProxy
+@RegisterForProxy(targets = [StoryAgent::class, dev.langchain4j.agentic.internal.InternalAgent::class, dev.langchain4j.agentic.internal.AgenticScopeOwner::class, dev.langchain4j.service.memory.ChatMemoryAccess::class, dev.langchain4j.agentic.agent.ChatMessagesAccess::class, dev.langchain4j.observability.api.listener.AiServiceResponseReceivedListener::class])
 interface StoryAgent {
     @Agent(outputKey = "story", description = "Generates a story based on the given topic")
 
