@@ -3,7 +3,6 @@ package org.goafabric.agentic.agents
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.agentic.declarative.SupervisorAgent
 import dev.langchain4j.agentic.supervisor.SupervisorResponseStrategy
-import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
 import io.quarkus.runtime.annotations.RegisterForProxy
 
@@ -12,19 +11,7 @@ interface SuperVisorAgent {
 
     @SupervisorAgent(
         subAgents = [CalleeAgent::class, PersonAgent::class, ObservationAgent::class, StoryAgent::class],
-        responseStrategy = SupervisorResponseStrategy.SUMMARY
+        responseStrategy = SupervisorResponseStrategy.LAST
     )
-    @UserMessage(
-        """
-        You are a supervisor agent.
-        You can use the CalleeAgent to say names
-        You can use the PersonAgent to find persons
-        You can use the ObservationAgent to find observations for patients
-        You can use the StoryAgent to write a story
-        
-        Always use english as language when responding
-        """
-    )
-    @Agent
     fun execute(@V("request") request: String): String
 }
