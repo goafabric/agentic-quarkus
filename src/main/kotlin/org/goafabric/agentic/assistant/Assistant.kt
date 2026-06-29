@@ -9,6 +9,7 @@ interface Assistant {
         You are a helpful assistant that can interact with mcp servers
         Use the callee mcp to say names
         Use the person mcp to find and search for persons
+        Use the observation mcp retrieve observation data like laboratory and vital signs for persons
         """)
     @McpToolBox("callee", "person", "observation")
     fun chat(@UserMessage message: String): String
