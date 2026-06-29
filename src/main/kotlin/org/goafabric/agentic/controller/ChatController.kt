@@ -7,14 +7,14 @@ import jakarta.ws.rs.Path
 import jakarta.ws.rs.Produces
 import jakarta.ws.rs.core.MediaType
 import org.eclipse.microprofile.config.inject.ConfigProperty
-import org.goafabric.agentic.agents.SuperAgent
+import org.goafabric.agentic.agents.SuperVisorAgent
 import org.goafabric.agentic.assistant.Assistant
 
 @Path("/chat")
 @ApplicationScoped
 class ChatController(
-    private val superAgent: SuperAgent,
-    //private val superAgent: SuperVisorAgentConfig.SupervisorAgent,
+    //private val superAgent: SuperAgent,
+    private val superAgent: SuperVisorAgent,
     private val assistant: Assistant,
     @param:ConfigProperty(name = "agentic.mode") private val mode: String
 ) {
