@@ -61,8 +61,8 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - observation_service_tmp:/tmp
-      - observation_service_applogs:/usr/share/logs
+      - person_service_tmp:/tmp
+      - person_service_applogs:/usr/share/logs
     networks:
       - ${_Values_root_name}-net
     environment:
@@ -108,7 +108,7 @@ services:
 
   observation-service:
     container_name: observation-service-application
-    image:  goafabric/observation-service-quarkus:3.24.4-SNAPSHOT
+    image:  goafabric/observation-service-quarkus:1.0.0
     restart: 'no'
     ports:
       - "50700:50700"
@@ -119,8 +119,8 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - person_service_tmp:/tmp
-      - person_service_applogs:/usr/share/logs
+      - observation_service_tmp:/tmp
+      - observation_service_applogs:/usr/share/logs
     networks:
       - ${_Values_root_name}-net
     environment:
