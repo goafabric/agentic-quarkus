@@ -12,10 +12,10 @@ interface PersonAgent {
 
     @UserMessage("""
         Use the find tool to search for persons matching the given name.
-        Use {{firstName}} for firstName and {{lastName}} for lastName
+        Use {{firstName}} for firstName 
         Use page=0 and size=10 for pagination.
         Return the results as a readable list.
     """)
     @McpToolBox("person")
-    fun findPerson(@V("firstName") firstName: String, @V("lastName") lastName: String?): String
+    fun findPerson(@V("firstName") firstName: String): String
 }

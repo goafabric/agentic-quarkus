@@ -1,6 +1,5 @@
 package org.goafabric.agentic.agents
 
-import dev.langchain4j.agentic.Agent
 import dev.langchain4j.agentic.declarative.SupervisorAgent
 import dev.langchain4j.agentic.supervisor.SupervisorResponseStrategy
 import dev.langchain4j.service.V
@@ -10,7 +9,7 @@ import io.quarkus.runtime.annotations.RegisterForProxy
 interface SuperVisorAgent {
 
     @SupervisorAgent(
-        subAgents = [CalleeAgent::class, PersonAgent::class, ObservationAgent::class, StoryAgent::class],
+        subAgents = [CalleeAgent::class, PersonAgent::class, ObservationAgent::class],
         responseStrategy = SupervisorResponseStrategy.LAST
     )
     fun execute(@V("request") request: String): String

@@ -39,7 +39,7 @@ services:
       quarkus.langchain4j.mcp.person.url: "http://${_Values_host_docker_internal}:50800/mcp"
       quarkus.langchain4j.mcp.observation.url: "http://${_Values_host_docker_internal}:50700/mcp"
 
-      agentic.mode: "agentic"
+      agentic.mode: "assistant" #"agentic"
       quarkus.langchain4j.chat-model.provider: "anthropic" # "openai"
 
       #log levels
