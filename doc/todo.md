@@ -1,5 +1,4 @@
 # quarkus
-- supervised agent
 - rag
 - redis, session, chatmem
          
