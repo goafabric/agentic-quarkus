@@ -9,13 +9,8 @@ import io.quarkus.runtime.annotations.RegisterForProxy
 @RegisterForProxy(targets = [PersonAgent::class, dev.langchain4j.agentic.internal.InternalAgent::class, dev.langchain4j.agentic.internal.AgenticScopeOwner::class, dev.langchain4j.service.memory.ChatMemoryAccess::class, dev.langchain4j.agentic.agent.ChatMessagesAccess::class, dev.langchain4j.observability.api.listener.AiServiceResponseReceivedListener::class])
 interface PersonAgent {
     @Agent(outputKey = "persons", description = "Finds persons by name via person mcp")
-
-    @UserMessage("""
-        Use the find tool to search for persons matching the given name.
-        Use {{firstName}} for firstName 
-        Use page=0 and size=10 for pagination.
-        Return the results as a readable list.
-    """)
     @McpToolBox("person")
+
+    @UserMessage("Use the find tool to search for persons matching the given name. {{firstName}}")
     fun findPerson(@V("firstName") firstName: String): String
 }
