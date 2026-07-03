@@ -1,5 +1,6 @@
 services:
   application:
+    dns: 8.8.8.8
     container_name: agentic-quarkus
     image:  ${_Values_image_repository}:${_Values_image_tag}
     restart: 'no'
