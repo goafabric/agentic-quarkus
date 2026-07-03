@@ -12,6 +12,7 @@ container stop calle-service-quarkus ; container run --name calle-service-quarku
 - agents and assistant also follow a declarative approach, by ditching manual builder code with annotations, examples can be find in doc foler
 
 # links
+https://docs.quarkiverse.io/quarkus-langchain4j/dev/index.html
 
 https://github.com/goafabric/agentic-quarkus/blob/main/src/main/kotlin/org/goafabric/agentic/assistant/Assistant.kt
 https://github.com/goafabric/agentic-quarkus/tree/main/src/main/kotlin/org/goafabric/agentic/agents
