@@ -10,9 +10,6 @@ import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.goafabric.agentic.agents.SuperVisorAgent
 import org.goafabric.agentic.assistant.Assistant
 
-data class ChatRequest(val message: String = "")
-data class ChatResponse(val reply: String)
-
 @Path("/chat")
 @ApplicationScoped
 class ChatController(
@@ -21,6 +18,8 @@ class ChatController(
     private val assistant: Assistant,
     @param:ConfigProperty(name = "agentic.mode") private val mode: String
 ) {
+    data class ChatRequest(val message: String = "")
+    data class ChatResponse(val reply: String)
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
