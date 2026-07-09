@@ -24,7 +24,7 @@ Can ran in two modes configured via "agentic.mode"
 - Agentic mode lives inside package "agents" => One Subagent per Usecase, orchestrated by the SuperVisoragent, everything just Annotations
 
 
-# container run
+# apple container run
 container image pull goafabric/agentic-quarkus:$(grep '^version=' gradle.properties | cut -d'=' -f2)
 "${(@z)${CRUNTIME:-docker run --pull always}}" --name agentic-quarkus --rm \
 -e ANTHROPIC_FOUNDRY_API_KEY -e ANTHROPIC_FOUNDRY_RESOURCE -e ANTHROPIC_DEFAULT_SONNET_MODEL \
