@@ -1,7 +1,7 @@
 # quarkus
-- rag
-- redis, session, chatmem
+- chatmem with REDIS
          
 # div
 - ml learning: https://tribuo.org/, deep q learning, model refinement (unsloth)
-- hermes
+- hermes, n8n
+- vector catalog
