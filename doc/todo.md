@@ -1,3 +1,8 @@
 # quarkus
-- chatmem with REDIS
 - https://quarkus.io/quarkus-workshop-langchain4j/requirements/
+- chatmem with REDIS
+
+- vectorsearch port over
+- rag
+- guardrails
+- graphrag neo4j               
