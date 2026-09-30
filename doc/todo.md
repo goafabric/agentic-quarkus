@@ -5,4 +5,6 @@
 - vectorsearch port over
 - rag
 - guardrails
+
 - graphrag neo4j               
+- own harness
