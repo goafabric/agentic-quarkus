@@ -8,3 +8,6 @@
 
 - graphrag neo4j               
 - own harness
+
+# div
+- hermes, n8n, neo4j
