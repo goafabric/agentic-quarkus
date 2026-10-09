@@ -7,7 +7,7 @@
 - guardrails
 
 - graphrag neo4j               
-- own harness, https://github.com/tamboui/tamboui
+- own harness
 
 # div
 - hermes, n8n, neo4j
