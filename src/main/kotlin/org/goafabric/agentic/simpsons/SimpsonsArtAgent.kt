@@ -6,7 +6,7 @@ import dev.langchain4j.service.UserMessage
 import dev.langchain4j.service.V
 
 interface SimpsonsArtAgent {
-    @Agent(outputKey = "art", description = "Creates a simpsons ASCII Art")
+    @Agent(name = "artGenerator", outputKey = "art", description = "Creates a simpsons ASCII Art")
     @SystemMessage("""
         Create a SMALL, FAST ASCII art scene of the character at the location.
         

@@ -4,7 +4,7 @@ import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.SystemMessage
 
 interface SimpsonsCharacterAgent {
-    @Agent(outputKey = "character", description = "Picks a random Simpsons character")
+    @Agent(name = "characterPicker", outputKey = "character", description = "Picks a random Simpsons character")
     @SystemMessage("""
         You are a Simpsons character picker.
         When invoked choose a random character from the famous tv series the simpsons,

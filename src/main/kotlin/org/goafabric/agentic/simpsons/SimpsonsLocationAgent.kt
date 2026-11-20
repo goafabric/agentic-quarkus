@@ -4,7 +4,7 @@ import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.SystemMessage
 
 interface SimpsonsLocationAgent {
-    @Agent(outputKey = "location", description = "Picks a random Simpsons location")
+    @Agent(name = "locationPicker", outputKey = "location", description = "Picks a random Simpsons location")
     @SystemMessage("""
         You are a simpsons location picker.
         When invoked choose a random location from the famous tv series the simpsons,
