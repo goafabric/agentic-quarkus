@@ -14,8 +14,6 @@ interface SimpsonsSceneSupervisorAgent {
     fun execute(@V("request") request: String): String
 
     companion object {
-        @JvmStatic
-        @Output
-        fun output(scope: AgenticScope): String = scope.readState("art", "")
+        @JvmStatic @Output fun output(scope: AgenticScope): String = scope.readState("art", "")
     }
 }
