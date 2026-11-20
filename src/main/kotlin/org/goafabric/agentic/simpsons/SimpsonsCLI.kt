@@ -1,18 +1,25 @@
-package org.goafabric.agentic.controller
+package org.goafabric.agentic.simpsons
 
+import io.quarkus.runtime.Quarkus
 import io.quarkus.runtime.StartupEvent
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.event.Observes
 import org.eclipse.microprofile.config.inject.ConfigProperty
-import org.goafabric.agentic.simpsons.SimpsonsCharacterAgent
 
 @ApplicationScoped
 class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: String,
-                  private val simpsonsCharacterAgent : SimpsonsCharacterAgent) {
+                  private val simpsonsCharacterAgent : SimpsonsCharacterAgent,
+                  private val simpsonsLocationAgent : SimpsonsLocationAgent,
+                  private val simpsonsArtAgent : SimpsonsArtAgent,
+    ) {
 
     fun onStart(@Observes ev: StartupEvent) {
         if (mode != "simpsons") return
         println("## executing Simpsons agent")
-        println(simpsonsCharacterAgent.execute())
+        val character = simpsonsCharacterAgent.execute()
+        val location = simpsonsLocationAgent.execute()
+        println(simpsonsArtAgent.execute(character, location))
+
+        Quarkus.asyncExit()
     }
 }
