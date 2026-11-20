@@ -4,7 +4,7 @@ import dev.langchain4j.agentic.declarative.Output
 import dev.langchain4j.agentic.declarative.SequenceAgent
 import dev.langchain4j.agentic.scope.AgenticScope
 
-interface SimpsonsSceneAgent {
+interface SimpsonsSceneSequenceAgent {
     @SequenceAgent(outputKey = "scene",
         description = "scene generator",
         subAgents = [SimpsonsCharacterAgent::class,
