@@ -23,7 +23,7 @@ class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: Strin
         println(simpsonsArtAgent.execute(character, location))
          */
 
-        simpsonsSceneAgent.execute()
+        println(simpsonsSceneAgent.execute())
         Quarkus.asyncExit()
     }
 }
