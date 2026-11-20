@@ -8,7 +8,8 @@ interface SimpsonsSceneSequenceAgent {
     @SequenceAgent(outputKey = "scene",
         description = "scene generator",
         subAgents = [SimpsonsCharacterAgent::class,
-        SimpsonsLocationAgent::class, SimpsonsArtAgent::class])
+            SimpsonsLocationAgent::class,
+            SimpsonsArtAgent::class])
     fun execute(): String
 
     companion object {
