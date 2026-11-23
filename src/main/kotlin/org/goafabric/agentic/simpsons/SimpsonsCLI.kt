@@ -10,6 +10,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty
 class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: String,
                   private val simpsonsSceneSequenceAgent: SimpsonsSceneSequenceAgent,
                   private val simpsonsSceneSupervisorAgent: SimpsonsSceneSupervisorAgent,
+                  private val simpsonsSceneParallelAgent: SimpsonsSceneParallelAgent,
 
 ) {
 
@@ -18,7 +19,8 @@ class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: Strin
         println("## executing Simpsons agent")
 
         //println(simpsonsSceneSequenceAgent.execute())
-        println(simpsonsSceneSupervisorAgent.execute("Generate a random Simpsons scene"))
+        //println(simpsonsSceneSupervisorAgent.execute("Generate a random Simpsons scene"))
+        println(simpsonsSceneParallelAgent.execute())
         Quarkus.asyncExit()
     }
 }
