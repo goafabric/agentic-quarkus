@@ -2,7 +2,7 @@
 - pleaese create a plan for the following scenario, if there is anything unclear please ask questions
 - a multi agent flow for a guarantee return process of damaged devices, for a fictional company "mapple" that orients itself to "apple"
 - should be build for simple opencode agents.md files first, but later be portable to quarkus agentic
-- also create test data
+- also create test data with 5 specific test return cases, please use simpsons characters with their typical character trades
 - should products of category "myphone" "mapbook (pro)" "mapple watch", you may for now create a fixed set of overall variations
 - should at least consist of 3 agents
 - in the first run should be as simple as possible, e.g. no fraud agent in the first batch
@@ -25,3 +25,10 @@
   - validation failed, please provide more info
   - return rejected because ...
   - return accepted
+                              
+
+# frontend (not needed for opencode)
+- have a selection tile at the left side that displays the test cases which can be selected
+- on the upper right side display the content of the test case
+- on the bottom right show the result of the output agent as text, but also the status in a clear indication
+- also display the agents itself and which one is currently working
