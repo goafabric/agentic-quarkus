@@ -1,4 +1,4 @@
-package org.goafabric.agentic.simpsons
+package org.goafabric.agentic.simpsons.subagent
 
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.SystemMessage

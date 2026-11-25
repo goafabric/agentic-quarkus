@@ -1,8 +1,11 @@
-package org.goafabric.agentic.simpsons
+package org.goafabric.agentic.simpsons.masteragent
 
 import dev.langchain4j.agentic.declarative.Output
 import dev.langchain4j.agentic.declarative.SequenceAgent
 import dev.langchain4j.agentic.scope.AgenticScope
+import org.goafabric.agentic.simpsons.subagent.SimpsonsArtAgent
+import org.goafabric.agentic.simpsons.subagent.SimpsonsCharacterAgent
+import org.goafabric.agentic.simpsons.subagent.SimpsonsLocationAgent
 
 interface SimpsonsSceneSequenceAgent {
     @SequenceAgent(outputKey = "scene",

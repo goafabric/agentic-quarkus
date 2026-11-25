@@ -5,6 +5,9 @@ import io.quarkus.runtime.StartupEvent
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.event.Observes
 import org.eclipse.microprofile.config.inject.ConfigProperty
+import org.goafabric.agentic.simpsons.masteragent.SimpsonsSceneParallelAgent
+import org.goafabric.agentic.simpsons.masteragent.SimpsonsSceneSequenceAgent
+import org.goafabric.agentic.simpsons.masteragent.SimpsonsSceneSupervisorAgent
 
 @ApplicationScoped
 class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: String,
@@ -18,9 +21,9 @@ class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: Strin
         if (mode != "simpsons") return
         println("## executing Simpsons agent")
 
-        //println(simpsonsSceneSequenceAgent.execute())
+        println(simpsonsSceneSequenceAgent.execute())
         //println(simpsonsSceneSupervisorAgent.execute("Generate a random Simpsons scene"))
-        println(simpsonsSceneParallelAgent.execute())
+        //println(simpsonsSceneParallelAgent.execute())
         Quarkus.asyncExit()
     }
 }
