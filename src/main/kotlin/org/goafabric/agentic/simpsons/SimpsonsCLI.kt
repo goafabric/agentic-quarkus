@@ -21,9 +21,9 @@ class SimpsonsCLI(@ConfigProperty(name = "agentic.mode") private val mode: Strin
         if (mode != "simpsons") return
         println("## executing Simpsons agent")
 
-        println(simpsonsSceneSequenceAgent.execute())
+        //println(simpsonsSceneSequenceAgent.execute())
         //println(simpsonsSceneSupervisorAgent.execute("Generate a random Simpsons scene"))
-        //println(simpsonsSceneParallelAgent.execute())
+        println(simpsonsSceneParallelAgent.execute())
         Quarkus.asyncExit()
     }
 }

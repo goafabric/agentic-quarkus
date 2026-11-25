@@ -25,7 +25,7 @@ dependencies {
 	}
 
 	implementation(enforcedPlatform("io.quarkus:quarkus-bom:3.40.1"))
-	implementation(enforcedPlatform("io.quarkus.platform:quarkus-langchain4j-bom:3.40.1"))
+	implementation(enforcedPlatform("io.quarkiverse.langchain4j:quarkus-langchain4j-bom:1.14.2"))
 }
 dependencies {
 	//web
