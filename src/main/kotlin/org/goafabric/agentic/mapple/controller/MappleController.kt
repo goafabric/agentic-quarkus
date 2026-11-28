@@ -4,41 +4,31 @@ import jakarta.enterprise.context.ApplicationScoped
 import jakarta.ws.rs.*
 import jakarta.ws.rs.core.MediaType
 import jakarta.ws.rs.core.Response
-import org.goafabric.agentic.mapple.TestCaseLoader
+import org.goafabric.agentic.mapple.logic.RunStatus
 
 @Path("/api/mapple")
 @ApplicationScoped
 @Produces(MediaType.APPLICATION_JSON)
 class MappleController(
-    private val runService: MappleRunService,
+    private val mappleLogic: MappleLogic,
 ) {
 
     @GET
     @Path("/cases")
-    fun cases(): List<CaseSummary> =
-        TestCaseLoader.IDS.map { caseId ->
-            val content = TestCaseLoader.load(caseId)
-            CaseSummary(caseId, TestCaseLoader.title(caseId, content))
-        }
+    fun cases(): List<CaseSummary> = mappleLogic.cases()
 
     @GET
     @Path("/cases/{caseId}")
-    fun getCase(@PathParam("caseId") caseId: String): CaseDetail {
-        if (caseId !in TestCaseLoader.IDS) throw NotFoundException("Unknown Mapple test case: $caseId")
-        val content = TestCaseLoader.load(caseId)
-        return CaseDetail(caseId, TestCaseLoader.title(caseId, content), content)
-    }
+    fun getCase(@PathParam("caseId") caseId: String): CaseDetail = mappleLogic.getCase(caseId)
 
     @POST
     @Path("/cases/{caseId}/run")
-    fun run(@PathParam("caseId") caseId: String): Response {
-        return Response.accepted(runService.start(caseId)).build()
-    }
+    fun run(@PathParam("caseId") caseId: String): Response =
+        Response.accepted(mappleLogic.run(caseId)).build()
 
     @GET
     @Path("/runs/{runId}")
-    fun runStatus(@PathParam("runId") runId: String): RunStatus =
-        runService.status(runId) ?: throw NotFoundException("Unknown Mapple run: $runId")
+    fun runStatus(@PathParam("runId") runId: String): RunStatus = mappleLogic.runStatus(runId)
 }
 
 data class CaseSummary(val id: String, val title: String)

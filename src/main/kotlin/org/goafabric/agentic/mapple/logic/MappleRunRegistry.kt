@@ -1,14 +1,30 @@
-package org.goafabric.agentic.mapple.web
+package org.goafabric.agentic.mapple.logic
 
+import dev.langchain4j.agentic.observability.AgentInvocationError
+import dev.langchain4j.agentic.observability.AgentListener
+import dev.langchain4j.agentic.observability.AgentRequest
+import dev.langchain4j.agentic.observability.AgentResponse
 import jakarta.enterprise.context.ApplicationScoped
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 @ApplicationScoped
-class MappleRunRegistry {
+class MappleRunRegistry : AgentListener {
 
     private val runs = ConcurrentHashMap<String, RunState>()
     private val currentRunId = ThreadLocal<String?>()
+
+    override fun beforeAgentInvocation(agentRequest: AgentRequest) {
+        onAgentStarted(agentRequest.agentName())
+    }
+
+    override fun afterAgentInvocation(agentResponse: AgentResponse) {
+        onAgentFinished(agentResponse.agentName(), agentResponse.output())
+    }
+
+    override fun onAgentInvocationError(agentInvocationError: AgentInvocationError) {
+        onAgentFailed(agentInvocationError.agentName(), agentInvocationError.error()?.rootMessage())
+    }
 
     fun create(caseId: String): String {
         val runId = UUID.randomUUID().toString()

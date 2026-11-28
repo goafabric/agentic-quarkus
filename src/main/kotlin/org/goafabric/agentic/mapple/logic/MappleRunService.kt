@@ -1,8 +1,7 @@
-package org.goafabric.agentic.mapple.web
+package org.goafabric.agentic.mapple.logic
 
 import jakarta.annotation.PreDestroy
 import jakarta.enterprise.context.ApplicationScoped
-import org.goafabric.agentic.mapple.TestCaseLoader
 import org.goafabric.agentic.mapple.agents.MappleReturnAgent
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -17,8 +16,7 @@ class MappleRunService(
         Thread(runnable, "mapple-run").apply { isDaemon = true }
     }
 
-    fun start(caseId: String): RunStart {
-        val customerCase = TestCaseLoader.load(caseId)
+    fun start(caseId: String, customerCase: String): RunStart {
         val runId = registry.create(caseId)
 
         executor.submit {
