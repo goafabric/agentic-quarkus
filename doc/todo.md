@@ -11,3 +11,7 @@
 
 # div
 - hermes, n8n, neo4j
+
+# mapple
+- tracing
+- mcp

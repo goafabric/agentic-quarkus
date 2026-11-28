@@ -8,7 +8,7 @@ tasks.withType<KotlinCompile>().all { compilerOptions { jvmTarget.set(JvmTarget.
 val dockerRegistry = "goafabric"
 plugins {
 	jacoco
-	id("io.quarkus") version "3.40.1"
+	id("io.quarkus") version "4.0.1"
 	id("net.researchgate.release") version "3.1.0"
 
 	kotlin("jvm") version "2.4.0"
@@ -24,8 +24,8 @@ dependencies {
 		testImplementation("com.tngtech.archunit:archunit-junit5:1.4.2")
 	}
 
-	implementation(enforcedPlatform("io.quarkus:quarkus-bom:3.40.1"))
-	implementation(enforcedPlatform("io.quarkiverse.langchain4j:quarkus-langchain4j-bom:1.14.2"))
+	implementation(enforcedPlatform("io.quarkus:quarkus-bom:4.0.1"))
+	implementation(enforcedPlatform("io.quarkiverse.langchain4j:quarkus-langchain4j-bom:2.0.0.CR1"))
 }
 dependencies {
 	//web
