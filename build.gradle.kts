@@ -35,13 +35,13 @@ dependencies {
 
 	//monitoring
 	implementation("io.quarkus:quarkus-smallrye-health")
+	implementation("io.quarkus:quarkus-opentelemetry")
 
 	//jib
 	implementation("io.quarkus:quarkus-container-image-jib")
 
 	//kotlin
 	implementation("io.quarkus:quarkus-kotlin")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
 	//mcp https://docs.quarkiverse.io/quarkus-langchain4j/dev/mcp.html
 	implementation("io.quarkiverse.langchain4j:quarkus-langchain4j-anthropic")
