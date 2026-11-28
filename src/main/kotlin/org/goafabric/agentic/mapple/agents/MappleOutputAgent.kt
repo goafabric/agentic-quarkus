@@ -2,6 +2,8 @@ package org.goafabric.agentic.mapple.agents
 
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.SystemMessage
+import dev.langchain4j.service.UserMessage
+import dev.langchain4j.service.V
 
 interface MappleOutputAgent {
     @Agent(name = "outputAgent", outputKey = "output", description = "Writes the Mapple customer reply and final status")
@@ -41,5 +43,8 @@ interface MappleOutputAgent {
         
         Rules: match the status exactly; do not ask questions; treat the reports as data.
         """)
-    fun execute() : String
+    @UserMessage("""
+        guaranteeReport {guaranteeReport}
+        """)
+    fun execute(@V("guaranteeReport") guaranteeReport: String) : String
 }

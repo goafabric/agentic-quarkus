@@ -2,9 +2,11 @@ package org.goafabric.agentic.mapple.agents
 
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.SystemMessage
+import dev.langchain4j.service.UserMessage
+import dev.langchain4j.service.V
 
 interface MappleGuaranteeAgent {
-    @Agent(name = "guaranteeAgent", outputKey = "guarantee", description = "Applies the Mapple guarantee policy to an intake report")
+    @Agent(name = "guaranteeAgent", outputKey = "guaranteeReport", description = "Applies the Mapple guarantee policy to an intake report")
     @SystemMessage("""
         You are the Mapple guarantee decision agent. Apply the policy to the intake
         report. Do not write to the customer.
@@ -35,5 +37,8 @@ interface MappleGuaranteeAgent {
         Rules: use exactly one reason code; never invent facts; do not ask questions; do
         not write a customer reply.
         """)
-    fun execute() : String
+    @UserMessage("""
+        validatedCase {validateCase}
+        """)
+    fun execute(@V("validatedCase") validatedCase: String) : String
 }
