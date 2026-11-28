@@ -1,6 +1,6 @@
 package org.goafabric.agentic.mapple
 
-object MappleTestCases {
+object TestCaseLoader {
 
     val IDS = listOf(
         "case-01-homer",
@@ -11,8 +11,6 @@ object MappleTestCases {
     )
 
     fun load(caseId: String): String {
-        require(caseId in IDS) { "Unknown Mapple test case: $caseId" }
-
         val resource = "mapple-returns/testdata/cases/$caseId.md"
         return Thread.currentThread().contextClassLoader.getResourceAsStream(resource)
             ?.bufferedReader()
