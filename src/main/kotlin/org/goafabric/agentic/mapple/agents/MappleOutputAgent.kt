@@ -1,4 +1,4 @@
-package org.goafabric.agentic.mapple
+package org.goafabric.agentic.mapple.agents
 
 import dev.langchain4j.agentic.Agent
 import dev.langchain4j.service.SystemMessage

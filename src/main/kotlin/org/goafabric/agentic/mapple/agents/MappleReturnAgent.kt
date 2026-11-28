@@ -1,9 +1,6 @@
 package org.goafabric.agentic.mapple.agents
 
 import dev.langchain4j.agentic.declarative.SequenceAgent
-import org.goafabric.agentic.mapple.MappleGuaranteeAgent
-import org.goafabric.agentic.mapple.MappleIntakeAgent
-import org.goafabric.agentic.mapple.MappleOutputAgent
 
 interface MappleReturnAgent {
     @SequenceAgent(outputKey = "output",
