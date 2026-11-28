@@ -1,6 +1,7 @@
 package org.goafabric.agentic.mapple.agents
 
 import dev.langchain4j.agentic.declarative.SequenceAgent
+import dev.langchain4j.service.V
 
 interface MappleReturnAgent {
     @SequenceAgent(outputKey = "output",
@@ -8,6 +9,6 @@ interface MappleReturnAgent {
         subAgents = [MappleIntakeAgent::class,
             MappleGuaranteeAgent::class,
             MappleOutputAgent::class])
-    fun execute(): String
+    fun execute(@V("customerCase") customerCase: String): String
 
 }

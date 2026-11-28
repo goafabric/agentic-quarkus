@@ -10,14 +10,23 @@ import org.goafabric.agentic.mapple.agents.MappleReturnAgent
 @ApplicationScoped
 class MappleCLI(@ConfigProperty(name = "agentic.mode") private val mode: String,
                 private val mappleReturnAgent: MappleReturnAgent,
-
 ) {
 
     fun onStart(@Observes ev: StartupEvent) {
         if (mode != "mapple") return
-        println("## executing Simpsons agent")
 
-        println(mappleReturnAgent.execute())
+        val caseId = "case-01-homer"
+        println("## executing Mapple return agent for $caseId")
+        println(mappleReturnAgent.execute(loadCase(caseId)))
         Quarkus.asyncExit()
     }
+
+    private fun loadCase(caseId: String): String {
+        val resource = "mapple-returns/testdata/cases/$caseId.md"
+        return Thread.currentThread().contextClassLoader.getResourceAsStream(resource)
+            ?.bufferedReader()
+            ?.use { it.readText() }
+            ?: throw IllegalArgumentException("Mapple test case '$caseId' not found at classpath:$resource")
+    }
+
 }

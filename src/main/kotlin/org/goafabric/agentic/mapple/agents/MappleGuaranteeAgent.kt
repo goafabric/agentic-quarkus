@@ -38,7 +38,7 @@ interface MappleGuaranteeAgent {
         not write a customer reply.
         """)
     @UserMessage("""
-        validatedCase {validateCase}
+        validatedCase {validatedCase}
         """)
     fun execute(@V("validatedCase") validatedCase: String) : String
 }
