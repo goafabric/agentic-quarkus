@@ -28,7 +28,9 @@
                               
 
 # frontend (not needed for opencode)
+- plz implement a matching frontend with a matching Rest Controller
+- can go to resources/META-INF which is quarkus default, only use html and javascript
 - have a selection tile at the left side that displays the test cases which can be selected
 - on the upper right side display the content of the test case
 - on the bottom right show the result of the output agent as text, but also the status in a clear indication
-- also display the agents itself and which one is currently working
+- also display the agents itself and which one is currently working, for this you migh have to implement callbacks from quarkus agentic
